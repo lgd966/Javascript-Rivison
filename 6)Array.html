@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array</title>
+  </head>
+  <body>
+    <script>
+      let a = [1, 2, 3, 4, null, false, "notpresent"];
+      console.log(a);
+
+      // indivisual value
+      console.log(a[0]); // 1
+      console.log(a[4]); // null
+      console.log(a[5]); // false
+      console.log(a[6]); // notpresent
+      console.log(a[7]); // undefined  (index 7 is not exist)
+
+      // lenght
+      console.log(a.length); // 7
+
+      // change element in array
+      a[4] = 25;
+      console.log(a); // [1, 2, 3, 4, 25, false, 'notpresent']
+
+      a[5] = true;
+      a[6] = "present";
+      console.log(a); //  [1, 2, 3, 4, 25, true, 'present']
+
+      // array ka type ---object--- hota he
+      console.log(typeof a); // object
+
+      //   --------------Array methods--------------
+
+      // convert array to string string-method
+      let num = [21, 25, 24];
+      let b = num.toString(); // 21,25,24
+
+      console.log(b);
+      console.log(typeof b); // string
+
+      // join-method
+      let c = num.join("-");
+      console.log(c); // 21-25-24
+
+      //   pop method
+      // let pop = num.pop(24)
+      // console.log|(pop)
+
+      //    push-method
+      let push = num.push(56); // add karna
+      console.log(num.length); // 4
+
+      //   shift method
+      let shift = num.shift();
+      console.log(shift); //21 start se nikalne ke liye
+
+      //   unshift method
+      let unshift = num.shift();
+      console.log(unshift); //25  end se  nikalne ke liye
+
+      // delete method
+      //   delete is --not metho-- delete is a ---operator---
+      let number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      let umber = delete number[3];
+
+      console.log(number); // [1, 2, 3, empty, 5, 6, 7, 8, 9]
+
+      console.log(number.length); // 9 (if we use delete operator then lenght will never change)
+
+      // concat method (for creating new array)
+      let num1 = [1, 2, 3, 4];
+      let num2 = [11, 12, 13, 14];
+      let newarray = num1.concat(num2);
+      console.log(newarray); //  [1, 2, 3, 4, 11, 12, 13, 14]
+
+      let num3 = [21, 22, 23, 24];
+      let morenewarray = num1.concat(num2, num3);
+      console.log(morenewarray);
+
+      // sort method (number sort karne ke liye)
+      let num5 = [4, 9, 35, 78, 1, 69];
+      num5.sort();
+      console.log(num5); //  [1, 35, 4, 69, 78, 9]
+
+      //   splice method
+      let num7 = [25, 26, 27, 28, 29, 30];
+      num7.splice(2, 3, 1127, 1128); // pehle digot ko delete karo aur usme aage walw digit add karo
+      console.log(num7); // [25, 26, 1127, 1128, 30]
+    </script>
+  </body>
+</html>
