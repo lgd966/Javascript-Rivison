@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //    datatypes
+      //  1--- primitive datatypes
+      let name = "gopal"; // string
+      let age = 25; // number
+      let bigint = 23415643123; // bigint (limit 0 - 53)
+      let email = null; // null (standlon value,this is empty)
+      let isLogin = true; // boolean (true,false)
+      let password = undefined; // undefined  (i delare variable but the value is not define)
+
+      console.table(name, age, bigint, email, isLogin, password);
+
+      console.log(typeof name);
+      console.log(typeof age);
+      console.log(typeof bigint);
+      console.log(typeof email); // null ka type object aata he
+      console.log(typeof isLogin);
+      console.log(typeof password); // undefined ka type undefined hi aata he
+
+      console.log(typeof (name))   // we also find typeof variable using this syntax
+    </script>
+  </body>
+</html>
