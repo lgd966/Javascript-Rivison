@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let score = "33abc";
+
+      let valueinScore = Number(score);
+      console.log(score);
+      console.log(typeof score); // string
+      console.log(valueinScore); // NaN
+      console.log(typeof valueinScore); // number
+
+      let number = null;
+
+      let valueinNumber = Number(number);
+      console.log(valueinNumber); // 0
+      console.log(typeof number); // object
+      console.log(valueinNumber); // 0
+      console.log(typeof valueinNumber); // number
+
+      // 1 = true, 0 = false , "false"
+      let isLogin = 1;
+
+      let valueinLogin = Boolean(isLogin);
+      console.log(valueinLogin); // true
+
+      let name = "";
+
+      let valueinname = Boolean(name);
+      console.log(valueinname); // false
+    </script>
+  </body>
+</html>
