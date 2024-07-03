@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>conditional</title>
+  </head>
+  <body>
+    <script>
+      let a = prompt("what is your age?"); // prompt ka type string aata he
+      a = Number.parseInt(a); // string ko number me convert karne ke liye
+
+      console.log(typeof a); // type= number
+      // if condition
+      if (a > 18) {
+        alert("you are eligible");
+      }
+
+      //   if else
+      if (a > 18) {
+        alert("you are eligible");
+      } else {
+        alert("you are not eligible");
+      }
+
+      // nested if else
+
+      let age = prompt("what is your age");
+
+      if (age < 0) {
+        alert("this is invalid age");
+      } else if (age < 9) {
+        alert("you are a kid");
+      } else if (age < 18 && age >= 9) {
+        alert("dont think");
+      } else {
+        alert("you are eligible");
+      }
+      console.log("done");
+    </script>
+  </body>
+</html>
