@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Snake Water Gun game using JS</title>
+        <!-- Linking external stylesheet for additional styling -->
+        <link rel="stylesheet" href="style.css" />
+      </head>
+      <style>
+        /* Global styles for all elements */
+        * {
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+        }
+
+        /* Body styling for centering content */
+        body {
+          height: 100vh;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        /* Styling for the main container of the game */
+        .main {
+          border-radius: 20px;
+          width: 75%;
+          box-shadow: 5px 5px 5px rgb(77, 77, 77);
+          background-color: #0bbac7;
+          text-align: center;
+        }
+
+        /* Styling for the game container with computer and user sections */
+        .container {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          padding: 30px 0;
+        }
+
+        /* Styling for the title in the left section */
+        .left h1 {
+          margin-bottom: 20px;
+        }
+
+        /* Styling for the options buttons in the user section */
+        .rightOption {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          margin-top: 20px;
+        }
+
+        /* Styling for common properties of buttons in the container */
+        .container button {
+          width: 100px;
+          padding: 10px 20px;
+          background-color: gray;
+          border: none;
+          border-radius: 3px;
+          cursor: pointer;
+          color: white;
+          background-color: rgb(211, 191, 15);
+          font-size: 18px;
+          transition: 0.2s;
+        }
+
+        /* Hover effect for buttons */
+        .container button:hover {
+          background-color: rgb(163, 148, 6);
+        }
+
+        /* Active effect for buttons */
+        .container button:active {
+          background-color: transparent;
+        }
+
+        /* Styling for the result section */
+        .result {
+          margin-block: 30px 40px;
+        }
+
+        /* Styling for the title in the result section */
+        .result h1 {
+          margin-bottom: 20px;
+        }
+
+        /* Styling for the additional results section */
+        .result2 {
+          display: flex;
+          justify-content: center;
+          gap: 50px;
+          margin-block: 30px;
+        }
+
+        /* Styling for the titles in the additional results section */
+        .result2 h3 {
+          margin-bottom: 10px;
+        }
+
+        /* Styling for the counter values in the additional results section */
+        .result2 p {
+          font-size: 18px;
+        }
+      </style>
+
+      <body>
+        <div class="main">
+          <div class="container">
+            <!-- Computer section with a title and a button -->
+            <div class="left">
+              <h1>Computer</h1>
+              <button id="computerReply">Wait</button>
+            </div>
+
+            <!-- User section with a title and buttons for game options -->
+            <div class="right">
+              <h1>You</h1>
+              <div class="rightOption">
+                <button id="snake">Snake</button>
+                <button id="water">Water</button>
+                <button id="gun">Gun</button>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+
+          <!-- Result section with a title and initial result message -->
+          <div class="result">
+            <h1>Result</h1>
+            <h2 id="result">Click on Snake/Water/Gun...</h2>
+          </div>
+
+          <hr />
+
+          <!-- Additional results section with total, win, and lose categories -->
+          <div class="result2">
+            <!-- Total games played with a counter -->
+            <div class="total">
+              <h3>Total</h3>
+              <p id="total">0</p>
+            </div>
+
+            <!-- Games won with a counter -->
+            <div class="win">
+              <h3>Win</h3>
+              <p id="win">0</p>
+            </div>
+
+            <!-- Games lost with a counter -->
+            <div class="lose">
+              <h3>Lose</h3>
+              <p id="lose">0</p>
+            </div>
+          </div>
+        </div>
+      </body>
+      <!-- Linking external JavaScript file for game logic -->
+    </html>
+    <script>
+      // Selecting HTML elements for buttons and result display
+      let snakeBtn = document.getElementById("snake");
+      let waterBtn = document.getElementById("water");
+      let gunBtn = document.getElementById("gun");
+      let computerReply = document.getElementById("computerReply");
+      let result = document.getElementById("result");
+      let winScore = document.getElementById("win");
+      let loseScore = document.getElementById("lose");
+      let totalScore = document.getElementById("total");
+
+      // Variables to keep track of scores
+      let total = 0;
+      let won = 0;
+      let lose = 0;
+
+      // Event listener for the Snake button
+      snakeBtn.addEventListener("click", () => {
+        // Generating a random number to check the computer's choice
+        let randomNum = Math.floor(Math.random() * 3);
+        // Array of all possible values: Water, Gun, Snake
+        let allValue = ["Water", "Gun", "Snake"];
+
+        // Computer's choice based on the random number
+        compAns = allValue[randomNum];
+        computerReply.innerText = compAns;
+
+        // Game logic based on user and computer choices
+        if (compAns == "Snake") {
+          result.innerText = "It's a tie!";
+          return;
+        } else if (compAns == "Water") {
+          result.innerText = "You win!";
+          won++;
+          winScore.innerText = won;
+        } else {
+          result.innerText = "Computer wins!";
+          lose++;
+          loseScore.innerText = lose;
+        }
+        // Updating the total games played counter
+        total++;
+        totalScore.innerText = total;
+      });
+
+      // Event listener for the Water button
+      waterBtn.addEventListener("click", () => {
+        // Generating a random number to check the computer's choice
+        let randomNum = Math.floor(Math.random() * 3);
+        // Array of all possible values: Snake, Water, Gun
+        let allValue = ["Snake", "Water", "Gun"];
+
+        // Computer's choice based on the random number
+        compAns = allValue[randomNum];
+        computerReply.innerText = compAns;
+
+        // Game logic based on user and computer choices
+        if (compAns == "Water") {
+          result.innerText = "It's a tie!";
+          return;
+        } else if (compAns == "Gun") {
+          result.innerText = "You win!";
+          won++;
+          winScore.innerText = won;
+        } else {
+          result.innerText = "Computer wins!";
+          lose++;
+          loseScore.innerText = lose;
+        }
+        // Updating the total games played counter
+        total++;
+        totalScore.innerText = total;
+      });
+
+      // Event listener for the Gun button
+      gunBtn.addEventListener("click", () => {
+        // Generating a random number to check the computer's choice
+        let randomNum = Math.floor(Math.random() * 3);
+        // Array of all possible values: Snake, Gun, Water
+        let allValue = ["Snake", "Gun", "Water"];
+
+        // Computer's choice based on the random number
+        compAns = allValue[randomNum];
+        computerReply.innerText = compAns;
+
+        // Game logic based on user and computer choices
+        if (compAns == "Gun") {
+          result.innerText = "It's a tie!";
+          return;
+        } else if (compAns == "Snake") {
+          result.innerText = "You win!";
+          won++;
+          winScore.innerText = won;
+        } else {
+          result.innerText = "Computer wins!";
+          lose++;
+          loseScore.innerText = lose;
+        }
+        // Updating the total games played counter
+        total++;
+        totalScore.innerText = total;
+      });
+    </script>
+  </body>
+</html>
